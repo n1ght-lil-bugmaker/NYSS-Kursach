@@ -1,0 +1,30 @@
+﻿.kakkos {
+    color: #1a6a84;
+    border: outset;
+    border-color: #1a6a84;
+    border-radius: 30px;
+    border-left: 100px;
+    border-right: 100px;
+    text-align: center;
+    margin: auto 200px auto 200px;
+}
+
+textarea {
+    border: solid 2px #1a6a84;
+    border-radius: 15px;
+    resize: none;
+}
+
+h2 {
+    font: 26pt;
+}
+
+body {
+    font-family: 'Roboto';
+    background-image: url(maxresdefault.jpg);
+}
+
+html {
+    background-image: url(/gif/RE7hN9D8B4Sv2S1s7QcjXECX.gif);
+    background-size: 100%;
+}

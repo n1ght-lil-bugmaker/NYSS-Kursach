@@ -1,0 +1,16 @@
+﻿<h2>Через файл</h2>
+
+@using(Html.BeginForm("UploadResult", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <p><input type="file" name="upload" required /></p>
+    <p>Ключ<input type="text" value="скорпион" name="key" required /></p>
+    <p>Зашифровать<input type="radio" name="type" value="encode" checked="checked" /></p>
+    <p>Расшифровать<input type="radio" name="type" value="decode" /></p>
+    <p><input type="submit" value="Скачать результат!" /></p>
+}
+<link rel="stylesheet" href="~/styles/style.css" />
+<a href="/../">Назад</a>
+
+@*<video controls="" loop="" autoplay="" name="media" preload="auto" hidden>
+    <source src="~/music/music.wav" type="audio/mp3">
+</video>*@

@@ -1,0 +1,25 @@
+﻿<link rel="stylesheet" href="~/styles/style.css" />
+
+
+<div class="kakkos">
+    <h2>Добро пожаловать в уникальное приложение для шифрования/дешифрования с использованием шифра Виженера</h2>
+    <h5>Для большего погружения заходите не через Chrome)))</h5>
+</div>
+
+<form method="post" action="/Home/Result/">
+    <p> Данные:</p>
+    <textarea required name="Data" cols="50" rows="5"> </textarea>
+    <p>Ключ: </p>
+    <input type="text" name="Key" value="скорпион" required />
+    <p>Зашифровать<input type="radio" name="type" value="encode" checked="checked" /></p>
+    <p>Расшифровать<input type="radio" name="type" value="decode" /></p>
+    <p><input value="submit" type="submit" /> </p>
+</form>
+
+<p><a href="/Home/ViaFile/">Хочу сделать через файл!</a></p>
+
+@*<video controls="" loop="" autoplay="" name="media" preload="auto" hidden>
+    <source src="~/music/music.wav" type="audio/mp3">
+</video>*@
+
+

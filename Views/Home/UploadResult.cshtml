@@ -1,0 +1,12 @@
+﻿<h2>Результат @ViewBag.Type</h2>
+
+<p>Было: <textarea readonly>@ViewBag.Data </textarea> </p>
+<p>Ключ: @ViewBag.Key</p>
+<p>Стало: <textarea readonly>@ViewBag.Result </textarea></p>
+<form action="/Home/Download/">
+    <input type="hidden" name="result" value="@ViewBag.Result" />
+    <input type="submit" value="Скачать .docx" />
+</form>
+<p><a href="/../">Назад</a></p>
+
+<link rel="stylesheet" href="~/styles/style.css" />
