@@ -1,8 +1,10 @@
 ﻿<h2>Результат @ViewBag.Type</h2>
 
-<p>Было: <textarea readonly>@ViewBag.Data </textarea> </p>
+<p>Было: </p>
+<textarea readonly cols="50" rows="5">@ViewBag.Data </textarea>
 <p>Ключ: @ViewBag.Key</p>
-<p>Стало: <textarea readonly>@ViewBag.Result </textarea></p>
+<p>Стало: </p>
+<textarea readonly cols="50" rows="5">@ViewBag.Result </textarea>
 <form action="/Home/Download/">
     <input type="hidden" name="result" value="@ViewBag.Result" />
     <input type="submit" value="Скачать .docx" />

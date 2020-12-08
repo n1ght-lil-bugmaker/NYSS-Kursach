@@ -18,10 +18,14 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPost]
-        public ActionResult Result(Encoding enc, string type)
+        public ActionResult Result(string Data, string Key, string type)
         {
             try
             {
+                var enc = new Encoding();
+                enc.Data = Data;
+                enc.Key = Key;
+
                 ViewBag.Data = enc.Data;
                 ViewBag.Key = enc.Key;
 
@@ -63,11 +67,12 @@ namespace WebApplication3.Controllers
         [HttpGet]
         public ActionResult ViaFile()
         {
+            ViewBag.Key = "скорпион";
             return View();
         }
 
         [HttpPost]
-        public ActionResult UploadResult(HttpPostedFileBase upload, string key, string type)
+        public ActionResult ViaFile(HttpPostedFileBase upload, string key, string type)
         {
             if(upload != null)
             {
@@ -92,16 +97,14 @@ namespace WebApplication3.Controllers
 
                     if(type == "encode")
                     {
-                        ViewBag.Type = "шифрования";
                         ViewBag.Result = enc.Encode();
-                        return Download(enc.Encode());
                     }
                     else
                     {
-                        ViewBag.Type = "дешифрования";
                         ViewBag.Result = enc.Decode();
-                        return Download(enc.Decode());
                     }
+
+                    return View();
 
                 }
                 catch
