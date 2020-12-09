@@ -74,43 +74,33 @@ namespace WebApplication3.Controllers
         {
             if(upload != null)
             {
-                try
+                var format = upload.FileName.Split('.');
+
+                string path = Server.MapPath($"~/Files/toWork.{format[format.Length -1]}");
+                upload.SaveAs(path);
+
+                var reader = FileReader.GetFileReader(path);
+                var enc = new Encoding();
+
+                enc.Data = reader.Read();
+                enc.Key = key;
+
+                ViewBag.Data = enc.Data;
+                ViewBag.Key = key;
+
+                if (type == "encode")
                 {
-                    if(!upload.FileName.EndsWith(".docx"))
-                    {
-                        return RedirectToAction("ViaFile");
-                    }
-
-                    string path = Server.MapPath("~/Files/toWork.docx");
-                    upload.SaveAs(path);
-
-                    var enc = new Encoding();
-
-                    using (var doc = DocX.Load(path))
-                    {
-                        enc.Data = doc.Text;
-                    }
-                    enc.Key = key;
-
-                    ViewBag.Data = enc.Data;
-                    ViewBag.Key = key;
-
-                    if(type == "encode")
-                    {
-                        ViewBag.Result = enc.Encode();
-                    }
-                    else
-                    {
-                        ViewBag.Result = enc.Decode();
-                    }
-
-                    return View();
-
+                    ViewBag.Result = enc.Encode();
                 }
-                catch
+                else
                 {
-                    return RedirectToAction("ViaFile");
+                    ViewBag.Result = enc.Decode();
                 }
+
+                return View();
+
+
+
             }
 
             return RedirectToAction("ViaFile");
