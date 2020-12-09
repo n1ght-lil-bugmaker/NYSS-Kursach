@@ -1,26 +1,36 @@
-﻿<h2>Через файл</h2>
+﻿<head>
+    <link href="~/gif/favicon.ico" rel="shortcut icon" />
+    <title>Через файл - NYSS, Курсач</title>
+</head>
 
-<form method="post" action="" enctype="multipart/form-data">
-    <p><input type="file" name="upload" required /></p>
-    <p>Ключ<input type="text" value=@ViewBag.Key name="key" required /></p>
-    <p>Зашифровать<input type="radio" name="type" value="encode" checked="checked" /></p>
-    <p>Расшифровать<input type="radio" name="type" value="decode" /></p>
-    <p><input type="submit" value="Погнали!!!" /></p>
-</form>
+<div id="kakkos">
+    <h2>Через файл</h2>
+</div>
 
-<p>Результат</p>
+<div class="centered">
+    <form method="post" action="" enctype="multipart/form-data">
+        <p><input type="file" name="upload" required /></p>
+        <p>Ключ <input class="key" type="text" value=@ViewBag.Key name="key" required /></p>
+        <p>Зашифровать<input type="radio" name="type" value="encode" checked="checked" /></p>
+        <p>Расшифровать<input type="radio" name="type" value="decode" /></p>
+        <p><input class="sexyButton" type="submit" value="Погнали!!!" /></p>
+    </form>
+
+    <p>Результат</p>
 <textarea readonly cols="50" rows="5">
     @ViewBag.Result
 </textarea>
-<form action="/Home/Download/" method="post" enctype="multipart/form-data">
-    <input type="hidden" value="@ViewBag.Result" name="result" />
-    <p><input type="submit" value="Скачать .docx" /></p>
-</form>
+    <form action="/Home/Download/" method="post" enctype="multipart/form-data">
+        <input type="hidden" value="@ViewBag.Result" name="result" />
+        <p><input class="sexyButton" type="submit" value="Скачать .docx" /></p>
+    </form>
 
-<link rel="stylesheet" href="~/styles/style.css" />
-<p><a href="/../">Назад</a></p>
+    <link rel="stylesheet" href="~/styles/style.css" />
+    <p><a href="/../">Назад</a></p>
+</div>
 
 
-@*<video controls="" loop="" autoplay="" name="media" preload="auto" hidden>
+
+<video controls="" loop="" autoplay="" name="media" preload="auto" hidden>
     <source src="~/music/music.wav" type="audio/mp3">
-</video>*@
+</video>

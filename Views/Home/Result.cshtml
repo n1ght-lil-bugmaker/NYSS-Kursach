@@ -1,18 +1,27 @@
-﻿<h2>Результат @ViewBag.Type</h2>
+﻿<head>
+    <link href="~/gif/favicon.ico" rel="shortcut icon" />
+    <title>Результат - NYSS, Курсач</title>
+</head>
+<div id="kakkos">
+    <h2>Результат @ViewBag.Type</h2>
+</div>
 
-<p>Было: </p>
+<div class="centered">
+    <p>Было: </p>
 <textarea readonly cols="50" rows="5">@ViewBag.Data </textarea>
-<p>Ключ: @ViewBag.Key</p>
-<p>Стало: </p>
+    <p>Ключ: @ViewBag.Key</p>
+    <p>Стало: </p>
 <textarea readonly cols="50" rows="5">@ViewBag.Result </textarea>
-<form action="/Home/Download/">
-    <input type="hidden" name="result" value="@ViewBag.Result" />
-    <input type="submit" value="Скачать .docx" />
-</form>
-<p><a href="/../">Назад</a></p>
+    <form action="/Home/Download/">
+        <input type="hidden" name="result" value="@ViewBag.Result" />
+        <br />
+        <input class="sexyButton" type="submit" value="Скачать .docx" />
+    </form>
+    <p><a href="/../">Назад</a></p>
+</div>
 
 <link rel="stylesheet" href="~/styles/style.css" />
 
-@*<video controls="" loop="" autoplay="" name="media" preload="auto" hidden>
+<video controls="" loop="" autoplay="" name="media" preload="auto" hidden>
     <source src="~/music/music.wav" type="audio/mp3">
-</video>*@
+</video>

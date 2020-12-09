@@ -138,11 +138,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="favicon.ico" />
+    <Content Include="gif\favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="music\Tanczaca Krowa - Tylko Jedno W Głowie Mam %28online-audio-converter.com%29.ogg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\3966.ttf" />
@@ -160,7 +159,6 @@
     <Content Include="Views\Home\maxresdefault.jpg" />
     <Content Include="gif\RE7hN9D8B4Sv2S1s7QcjXECX.gif" />
     <Content Include="styles\style.css" />
-    <Content Include="music\music.mp3" />
     <Content Include="music\music.wav" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -173,7 +171,6 @@
     <Content Include="Views\Home\Encoder.cshtml" />
     <Content Include="Views\Home\Result.cshtml" />
     <Content Include="Views\Home\ViaFile.cshtml" />
-    <Content Include="Views\Home\UploadResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

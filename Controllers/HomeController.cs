@@ -52,10 +52,8 @@ namespace WebApplication3.Controllers
 
         public FilePathResult Download(string result)
         {
-            var path = Server.MapPath("~/Files/result.docx");
-
-
-            using (var doc = DocX.Create(path))
+            string path = Server.MapPath("~/Files/result.docx");
+            using (DocX doc = DocX.Create(path))
             {
                 doc.InsertParagraph(result);
                 doc.Save();
@@ -82,8 +80,10 @@ namespace WebApplication3.Controllers
                     {
                         return RedirectToAction("ViaFile");
                     }
-                    var path = Server.MapPath("~/Files/toWork.docx");
+
+                    string path = Server.MapPath("~/Files/toWork.docx");
                     upload.SaveAs(path);
+
                     var enc = new Encoding();
 
                     using (var doc = DocX.Load(path))

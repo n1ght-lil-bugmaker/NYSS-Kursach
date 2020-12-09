@@ -1,4 +1,4 @@
-﻿.kakkos {
+﻿#kakkos {
     color: #1a6a84;
     border: outset;
     border-color: #1a6a84;
@@ -13,6 +13,8 @@ textarea {
     border: solid 2px #1a6a84;
     border-radius: 15px;
     resize: none;
+    background-color: rgba(153, 153, 255, 0.6);
+    outline: none;
 }
 
 h2 {
@@ -22,9 +24,46 @@ h2 {
 body {
     font-family: 'Roboto';
     background-image: url(maxresdefault.jpg);
+    margin-left: 20px;
 }
 
 html {
     background-image: url(/gif/RE7hN9D8B4Sv2S1s7QcjXECX.gif);
     background-size: 100%;
+}
+
+.sexyButton {
+    background-color: rgba(153, 153, 255, 0.6);
+    border-radius: 5px;
+    width: auto;
+    height: 26px;
+    font-size: 14px;
+    font-style: normal;
+    font-family: Roboto;
+    text-align: center;
+    text-shadow: initial;
+}
+.sexyButton:hover {
+    background-color: #6b7db3;
+}
+
+.key {
+    height: 25px;
+    width: 100px;
+    border: solid 2px #6b7db3;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: rgba(153, 153, 255, 0.6);  
+    
+}
+
+input {
+    outline: none;
+}
+
+.centered {
+    margin: auto 30%;
+    background: rgba(107, 125, 179, 0.7);
+    color: aliceblue;
+    text-align:center;
 }
