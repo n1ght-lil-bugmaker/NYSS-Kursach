@@ -76,34 +76,38 @@ namespace WebApplication3.Controllers
         {
             if(upload != null)
             {
-                CheckPath();
-
-                var format = upload.FileName.Split('.');
-                string path = Server.MapPath($"~/Files/toWork.{format[format.Length -1]}");
-                upload.SaveAs(path);
-
-                var reader = FileReader.GetFileReader(path);
-                var enc = new Encoding();
-
-                enc.Data = reader.Read();
-                enc.Key = key;
-
-                ViewBag.Data = enc.Data;
-                ViewBag.Key = key;
-
-                if (type == "encode")
+                try
                 {
-                    ViewBag.Result = enc.Encode();
+                    CheckPath();
+
+                    var format = upload.FileName.Split('.');
+                    string path = Server.MapPath($"~/Files/toWork.{format[format.Length - 1]}");
+                    upload.SaveAs(path);
+
+                    var reader = FileReader.GetFileReader(path);
+                    var enc = new Encoding();
+
+                    enc.Data = reader.Read();
+                    enc.Key = key;
+
+                    ViewBag.Data = enc.Data;
+                    ViewBag.Key = key;
+
+                    if (type == "encode")
+                    {
+                        ViewBag.Result = enc.Encode();
+                    }
+                    else
+                    {
+                        ViewBag.Result = enc.Decode();
+                    }
+
+                    return View();
                 }
-                else
+                catch
                 {
-                    ViewBag.Result = enc.Decode();
+                    return RedirectToAction("ViaFile");
                 }
-
-                return View();
-
-
-
             }
 
             return RedirectToAction("ViaFile");
