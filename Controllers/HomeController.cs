@@ -11,6 +11,8 @@ namespace WebApplication3.Controllers
 {
     public class HomeController : Controller
     {
+        
+
         [HttpGet]
         public ActionResult Encoder()
         {
@@ -74,8 +76,9 @@ namespace WebApplication3.Controllers
         {
             if(upload != null)
             {
-                var format = upload.FileName.Split('.');
+                CheckPath();
 
+                var format = upload.FileName.Split('.');
                 string path = Server.MapPath($"~/Files/toWork.{format[format.Length -1]}");
                 upload.SaveAs(path);
 
@@ -104,6 +107,16 @@ namespace WebApplication3.Controllers
             }
 
             return RedirectToAction("ViaFile");
+        }
+
+        private void CheckPath()
+        {
+            var path = Server.MapPath("~/Files");
+
+            if(!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
         }
     }
 }
