@@ -54,6 +54,7 @@ namespace WebApplication3.Controllers
 
         public FilePathResult Download(string result)
         {
+            CheckPath();
             string path = Server.MapPath("~/Files/result.docx");
             using (DocX doc = DocX.Create(path))
             {
