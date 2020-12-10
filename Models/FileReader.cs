@@ -9,6 +9,12 @@ namespace WebApplication3.Models
     {
         protected static string _path;
 
+        private static Dictionary<string, Type> _readers = new Dictionary<string, Type>()
+        {
+            {".docx", typeof(DocxReader) },
+            {".txt", typeof(TxtReader) }
+        };
+        
         public abstract string FileFormat { get; }
         public abstract string Read();
 
@@ -16,23 +22,19 @@ namespace WebApplication3.Models
         public FileReader(string path)
         {
             _path = path;
-
-            
         }
         public static FileReader GetFileReader(string path)
         {
-            if(path.EndsWith(".txt"))
+            foreach(var format in _readers.Keys)
             {
-                return new TxtReader(path);
+                if(path.EndsWith(format))
+                {
+                    var type = _readers[format];
+                    var constructor = type.GetConstructor(new Type[] { typeof(string) });
+                    return constructor.Invoke(new object[] { path }) as FileReader;
+                }
             }
-            if(path.EndsWith(".docx"))
-            {
-                return new DocxReader(path);
-            }
-            else
-            {
-                throw new Exception("Неверный формат");
-            }
+            throw new FormatException();
 
         }
     }
