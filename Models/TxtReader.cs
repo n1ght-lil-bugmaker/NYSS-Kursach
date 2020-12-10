@@ -15,8 +15,13 @@ namespace WebApplication3.Models
         }
         public override string Read()
         {
-            return File.ReadAllText(_path);
+            string res = File.ReadAllText(_path);
+            if(res.Contains('�'))
+            {
+                return File.ReadAllText(_path, System.Text.Encoding.Default);
+            }
+            return res;
         }
-
+        
     }
 }
