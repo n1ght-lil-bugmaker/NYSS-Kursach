@@ -14,6 +14,7 @@ namespace Tests
             enc.Key = "котик";
 
             Assert.AreEqual("ьэуивхо", enc.Encode());
+
         }
 
         [TestMethod]

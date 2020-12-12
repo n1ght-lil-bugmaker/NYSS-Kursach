@@ -17,20 +17,20 @@ namespace WebApplication3.Models
             }
             set
             {
-                _key = value;
+                _key = value.ToLower();
                 _keyShifts.Clear();
 
 
                 foreach (char i in _key)
                 {
+                    if (!_alphabet.Contains(i.ToString().ToLower()))
+                    {
+                        throw new Exception("Некорректный ключ!");
+                    }
+
                     if (!_keyShifts.ContainsKey(i))
                     {
                         _keyShifts.Add(i, _alphabetIndexes[i]);
-                    }
-
-                    if(!_alphabet.Contains(i.ToString().ToLower()))
-                    {
-                        throw new Exception("Некорректный ключ!");
                     }
 
                 }
